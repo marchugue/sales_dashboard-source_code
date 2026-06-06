@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    @apply antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  .dashboard-card {
+    @apply bg-card rounded-lg border border-border shadow-sm;
+  }
+  
+  .dashboard-card-header {
+    @apply px-6 py-4 border-b border-border flex items-center justify-between;
+  }
+  
+  .dashboard-card-title {
+    @apply text-base font-semibold text-card-foreground;
+  }
+  
+  .dashboard-card-content {
+    @apply p-6 text-card-foreground;
+  }
+  
+  .kpi-card {
+    @apply bg-card rounded-lg border border-border p-6 shadow-sm transition-shadow hover:shadow-md;
+  }
+  
+  .kpi-label {
+    @apply text-sm font-medium text-muted-foreground;
+  }
+  
+  .kpi-value {
+    @apply text-2xl font-bold text-card-foreground mt-1;
+  }
+  
+  .kpi-change {
+    @apply text-xs font-medium mt-2 flex items-center gap-1;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800 px-4 py-2;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 hover:text-slate-900 px-4 py-2;
+  }
+  
+  .btn-ghost {
+    @apply btn text-slate-600 hover:bg-slate-100 hover:text-slate-900 px-3 py-2;
+  }
+  
+  .input {
+    @apply flex h-10 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .select {
+    @apply flex h-10 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  }
+  
+  .table-container {
+    @apply w-full overflow-auto rounded-lg border border-slate-200;
+  }
+  
+  .data-table {
+    @apply w-full caption-bottom text-sm;
+  }
+  
+  .data-table thead {
+    @apply bg-slate-50 border-b border-slate-200;
+  }
+  
+  .data-table th {
+    @apply h-12 px-4 text-left align-middle font-medium text-slate-500;
+  }
+  
+  .data-table tbody tr {
+    @apply border-b border-slate-100 transition-colors hover:bg-slate-50/50;
+  }
+  
+  .data-table tbody tr:last-child {
+    @apply border-b-0;
+  }
+  
+  .data-table td {
+    @apply p-4 align-middle text-slate-700;
+  }
+  
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  
+  .badge-primary {
+    @apply badge bg-primary-100 text-primary-700;
+  }
+  
+  .badge-success {
+    @apply badge bg-emerald-100 text-emerald-700;
+  }
+  
+  .badge-warning {
+    @apply badge bg-amber-100 text-amber-700;
+  }
+  
+  .skeleton {
+    @apply animate-pulse bg-slate-200 rounded;
+  }
+  
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900;
+  }
+  
+  .sidebar-link-active {
+    @apply sidebar-link bg-primary-50 text-primary-700 hover:bg-primary-100 hover:text-primary-800;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Density utilities */
+  .density-compact {
+    --space-unit: 0.5rem;
+  }
+  .density-comfortable {
+    --space-unit: 1rem;
+  }
+  .density-spacious {
+    --space-unit: 1.5rem;
+  }
+
+  /* Dashboard card spacing based on density */
+  .density-compact .dashboard-card {
+    @apply p-3;
+  }
+  .density-compact .dashboard-card-header {
+    @apply mb-2 pb-2;
+  }
+  .density-compact .dashboard-card-content {
+    @apply space-y-2;
+  }
+
+  .density-spacious .dashboard-card {
+    @apply p-8;
+  }
+  .density-spacious .dashboard-card-header {
+    @apply mb-6 pb-4;
+  }
+  .density-spacious .dashboard-card-content {
+    @apply space-y-6;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(203 213 225) transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgb(203 213 225);
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(148 163 184);
+  }
+}
